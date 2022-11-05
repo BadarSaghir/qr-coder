@@ -11,6 +11,7 @@ module.exports = {
       primary_dark: "#A6B9D6",
       secondary: "#00288A",
       secondary_light: "#113A9F",
+      shadow_transparent: "#113A9F70",
       secondary_lighter: "#3DBCF9",
       tertiary: "#FFF",
     },

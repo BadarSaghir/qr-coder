@@ -1,5 +1,5 @@
 export interface IItem {
-  icon: string;
+  icon: JSX.Element;
   link?: string;
   selected: boolean;
 }

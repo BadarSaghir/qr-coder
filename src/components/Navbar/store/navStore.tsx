@@ -1,30 +1,63 @@
 import create from "zustand";
 import { IItem } from "../elements";
+import {
+  LinkIcon,
+  CalendarIcon,
+  FolderIcon,
+  EnvelopeIcon,
+  EnvelopeOpenIcon,
+  LockOpenIcon,
+  LockClosedIcon,
+  PencilIcon,
+  QrCodeIcon,
+} from "@heroicons/react/24/solid";
 
 export const useNavStore = create<{
   items: IItem[];
   selected: boolean;
+  idxSelected: number;
   addNavItem: (item: IItem) => void;
   getNavItems: () => IItem[];
   init: (item: IItem[]) => void;
   toggleSelection: (idx: number) => IItem;
 }>((set, get) => ({
+  idxSelected: -1,
   selected: false,
   items: [
     {
-      icon: "Abc",
+      link: "/url",
       selected: false,
-      link: "s",
+      icon: <LinkIcon />,
     },
     {
-      icon: "Abc",
+      link: "/event",
       selected: false,
-      link: "s",
+      icon: <CalendarIcon />,
     },
     {
-      icon: "Abc",
+      link: "/text",
       selected: false,
-      link: "s",
+      icon: <QrCodeIcon />,
+    },
+    {
+      link: "/email",
+      selected: false,
+      icon: <EnvelopeOpenIcon />,
+    },
+    {
+      icon: <LockClosedIcon />,
+      selected: false,
+      link: "/encryptedMessage",
+    },
+    {
+      icon: <FolderIcon />,
+      selected: false,
+      link: "/files",
+    },
+    {
+      icon: <LockOpenIcon />,
+      selected: false,
+      link: "/decryptedMsg",
     },
   ],
 
@@ -47,19 +80,22 @@ export const useNavStore = create<{
       // console.log("info state before", state.selected);
       // console.log("info state item before", state.items[idx].selected);
 
-      if (state.selected == false && state.items[idx].selected == false) {
-        state.selected = true;
+      if (state.idxSelected == -1) {
+        state.idxSelected = idx;
         state.items[idx].selected = true;
-      } else if (state.selected == true && state.items[idx].selected == true) {
-        state.selected = false;
-        state.items[idx].selected = false;
       } else {
-        state.items[idx].selected = false;
+        state.items[state.idxSelected].selected = false;
+        state.items[idx].selected = true;
+        state.idxSelected = idx;
       }
       // console.log("info state after", state.selected);
       // console.log("info state item after", state.items[idx].selected);
 
-      return { items: [...state.items], selected: state.selected };
+      return {
+        items: [...state.items],
+        selected: state.selected,
+        idxSelected: idx,
+      };
     });
     return get().items[idx];
   },

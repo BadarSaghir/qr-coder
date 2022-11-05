@@ -11,9 +11,9 @@ const Navbar = (props: Props) => {
   const { toggleSelection, items } = useNavStore();
 
   return (
-    <div className="absolute bottom-16 shad top-16 flex border-solid border-2 p-6 ">
+    <div className="absolute bottom-20 top-20 flex border-solid border-2 p-6 ">
       {" "}
-      <div className="min-w-[65px] h-full flex flex-col shadow-xl justify-around items-center text-center bg-tertiary rounded-full gap-3 p-4 pt-6 pb-6">
+      <div className="min-w-[30px] relative h-full flex flex-col shadow-xl justify-around items-center text-center bg-tertiary rounded-full gap-3 p-4 pt-6 pb-6">
         {/* {items[0].icon} */}
         {/* jj */}
         {/* <NavItem icon="hell" selected={false} /> */}
@@ -23,11 +23,13 @@ const Navbar = (props: Props) => {
               key={idx}
               icon={item.icon}
               selected={item.selected}
+              link={item.link}
               idx={idx}
               toggleSelection={toggleSelection}
             />
           );
         })}
+
         {/* <div className="border-solid flex-1 border-2">icon</div>
         <div className="border-solid flex-1 border-2">icon</div>
         <div className="border-solid flex-1 border-2">icon</div>
