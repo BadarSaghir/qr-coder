@@ -13,17 +13,17 @@ export const NavItem = ({
   toggleSelection,
 }: IItem & { idx: number; toggleSelection: (idx: number) => IItem }) => {
   return (
-    <div className="border-b-[1px] border-b-solid border-b-shadow_transparent pb-2">
+    <div className="border-b-[1px] border-collapse border-b-shadow_transparent pb-2">
       <Link href={link ?? ""}>
         <button
           onClick={() => {
             toggleSelection(idx);
           }}
           className={
-            "h-9 w-9  flex items-center  justify-center rounded-3xl " +
+            "h-12 w-12   flex items-center  justify-center rounded-3xl " +
             (selected
-              ? " p-2.5 bg-secondary text-tertiary shadow-lg shadow-shadow_transparent"
-              : " p-2  bg-tertiary text-primary_dark")
+              ? " p-4 bg-secondary text-tertiary shadow-lg shadow-shadow_transparent"
+              : " p-4  bg-tertiary text-primary_dark")
           }
         >
           {icon}

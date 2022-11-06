@@ -25,39 +25,46 @@ export const useNavStore = create<{
   selected: false,
   items: [
     {
-      link: "/url",
+      link: "/?selected=url",
       selected: false,
       icon: <LinkIcon />,
+      query: { parameter: "selected", value: "url" },
     },
     {
-      link: "/event",
+      link: "/?selected=event",
       selected: false,
       icon: <CalendarIcon />,
+      query: { parameter: "selected", value: "event" },
     },
     {
-      link: "/text",
-      selected: false,
-      icon: <QrCodeIcon />,
-    },
-    {
-      link: "/email",
+      link: "/?selected=email",
       selected: false,
       icon: <EnvelopeOpenIcon />,
+      query: { parameter: "selected", value: "email" },
+    },
+    {
+      link: "/?selected=text",
+      selected: true,
+      icon: <QrCodeIcon />,
+      query: { parameter: "selected", value: "text" },
     },
     {
       icon: <LockClosedIcon />,
       selected: false,
-      link: "/encryptedMessage",
+      link: "/?selected=encryptedMessage",
+      query: { parameter: "selected", value: "encryptedMessage" },
     },
     {
       icon: <FolderIcon />,
       selected: false,
-      link: "/files",
+      link: "/?selected=files",
+      query: { parameter: "selected", value: "files" },
     },
     {
       icon: <LockOpenIcon />,
       selected: false,
-      link: "/decryptedMsg",
+      link: "/?selected=decryptedMsg",
+      query: { parameter: "selected", value: "decryptedMsg" },
     },
   ],
 
@@ -81,6 +88,7 @@ export const useNavStore = create<{
       // console.log("info state item before", state.items[idx].selected);
 
       if (state.idxSelected == -1) {
+        state.items[3].selected = false;
         state.idxSelected = idx;
         state.items[idx].selected = true;
       } else {
