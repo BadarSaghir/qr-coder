@@ -1,5 +1,6 @@
 import React from "react";
 import DividerLayout from "../../Layouts/DividerLayout";
+import QrExportForm from "../../QrExportForm";
 
 type Props = {};
 
@@ -9,9 +10,7 @@ const QrURLLayout = (props: Props) => {
       <div>
         <p>QrURLLayout</p>
       </div>
-      <div>
-        <p>QrURLLayout 2</p>
-      </div>
+      <QrExportForm />
     </DividerLayout>
   );
 };
