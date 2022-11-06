@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { IItem } from "./elements";
+import { IItem } from "./Items.interface";
 
 type PropNavItem = {
   item: IItem;
@@ -13,7 +13,7 @@ export const NavItem = ({
   toggleSelection,
 }: IItem & { idx: number; toggleSelection: (idx: number) => IItem }) => {
   return (
-    <div className="border-b-[1px] border-collapse border-b-shadow_transparent pb-2">
+    <div className="border-b-[1px] flex-1 flex items-center justify-center border-collapse border-b-shadow_transparent">
       <Link href={link ?? ""}>
         <button
           onClick={() => {

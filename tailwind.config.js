@@ -17,5 +17,12 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  mode: "jit",
+  plugins: [
+    function ({ addVariant }) {
+      addVariant("firstChild", "&>:nth-child(1)");
+      addVariant("secondChild", "&>:nth-child(2)");
+      addVariant("thirdChild", "&>:nth-child(3)");
+    },
+  ],
 };

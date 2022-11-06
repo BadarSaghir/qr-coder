@@ -3,4 +3,5 @@ export interface IItem {
   link?: string;
   selected: boolean;
   query?: { parameter: string; value: string };
+  Layout?: JSX.Element;
 }

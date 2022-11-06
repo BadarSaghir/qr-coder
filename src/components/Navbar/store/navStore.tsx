@@ -1,5 +1,5 @@
 import create from "zustand";
-import { IItem } from "../elements";
+import { IItem } from "../Items.interface";
 import {
   LinkIcon,
   CalendarIcon,
@@ -11,17 +11,20 @@ import {
   PencilIcon,
   QrCodeIcon,
 } from "@heroicons/react/24/solid";
+import QrURLLayout from "../Layouts/QrURLLayout";
 
 export const useNavStore = create<{
   items: IItem[];
   selected: boolean;
   idxSelected: number;
+  defaultSelection: number;
   addNavItem: (item: IItem) => void;
   getNavItems: () => IItem[];
   init: (item: IItem[]) => void;
   toggleSelection: (idx: number) => IItem;
 }>((set, get) => ({
   idxSelected: -1,
+  defaultSelection: 3,
   selected: false,
   items: [
     {
@@ -29,42 +32,49 @@ export const useNavStore = create<{
       selected: false,
       icon: <LinkIcon />,
       query: { parameter: "selected", value: "url" },
+      Layout: <QrURLLayout />,
     },
     {
       link: "/?selected=event",
       selected: false,
       icon: <CalendarIcon />,
       query: { parameter: "selected", value: "event" },
+      Layout: <QrURLLayout />,
     },
     {
       link: "/?selected=email",
       selected: false,
       icon: <EnvelopeOpenIcon />,
       query: { parameter: "selected", value: "email" },
+      Layout: <QrURLLayout />,
     },
     {
       link: "/?selected=text",
       selected: true,
       icon: <QrCodeIcon />,
       query: { parameter: "selected", value: "text" },
+      Layout: <QrURLLayout />,
     },
     {
       icon: <LockClosedIcon />,
       selected: false,
       link: "/?selected=encryptedMessage",
       query: { parameter: "selected", value: "encryptedMessage" },
+      Layout: <QrURLLayout />,
     },
     {
       icon: <FolderIcon />,
       selected: false,
       link: "/?selected=files",
       query: { parameter: "selected", value: "files" },
+      Layout: <QrURLLayout />,
     },
     {
       icon: <LockOpenIcon />,
       selected: false,
       link: "/?selected=decryptedMsg",
       query: { parameter: "selected", value: "decryptedMsg" },
+      Layout: <QrURLLayout />,
     },
   ],
 
@@ -74,7 +84,6 @@ export const useNavStore = create<{
         items: [...state.items, item],
       };
     }),
-
   init: (item: IItem[]) =>
     set(() => {
       return {
@@ -108,3 +117,5 @@ export const useNavStore = create<{
     return get().items[idx];
   },
 }));
+
+export default useNavStore;
