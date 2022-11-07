@@ -13,7 +13,7 @@ const QrExportForm = (props: Props) => {
   const theme = useTheme();
 
   return (
-    <Paper className="bg-secondary pb-20 pt-20 rounded-3xl px-2 text-tertiary w-[80vw] md:w-[100%] sm:min-w-[380px]">
+    <Paper className="bg-secondary pb-10 pt-10 rounded-3xl px-2 text-tertiary w-[80vw] md:w-[100%] sm:min-w-[380px]">
       <Box component={"form"}>
         <Stack
           justifyContent={"center"}
