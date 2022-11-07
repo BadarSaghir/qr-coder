@@ -8,15 +8,16 @@ const QrExportForm = (props: Props) => {
   const theme = useTheme();
 
   return (
-    <Paper className="bg-secondary rounded-3xl text-tertiary w-[80vw] md:w-[100%] sm:min-w-[380px]">
+    <Paper className="bg-secondary pb-20 pt-8 rounded-3xl  text-tertiary w-[80vw] md:w-[100%] sm:min-w-[380px]">
       <Box component={"form"}>
         <Stack
           justifyContent={"center"}
           alignItems={"center"}
           direction={"column"}
+          gap={5}
         >
-          <Container>
-            <QrCodeIcon className={"h-20 w-[70%]"} />
+          <Container className="flex items-center justify-center">
+            <QrCodeIcon className={"md:h-[11vw] sm:h-[12vw] h-[20vw]"} />
           </Container>
           <Container>
             <Stack direction={"column"}>
@@ -36,16 +37,16 @@ const QrExportForm = (props: Props) => {
               justifyContent={"center"}
               alignItems={"center"}
               direction={"row"}
-              gap={3}
+              gap={"1.5vw"}
             >
               <Button
-                className="rounded-full py-4 px-8 text-xs font-bold"
+                className="rounded-full py-5 px-8 text-xs font-bold"
                 style={{ backgroundColor: theme.palette.action.active }}
               >
                 JPG
               </Button>
               <Button
-                className="rounded-full py-4 px-8 text-xs font-bold"
+                className="rounded-full py-5 px-8 text-xs font-bold"
                 style={{ backgroundColor: theme.palette.action.selected }}
               >
                 SVG
