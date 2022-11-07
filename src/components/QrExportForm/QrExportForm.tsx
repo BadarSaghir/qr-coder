@@ -20,7 +20,7 @@ const QrExportForm = (props: Props) => {
             <QrCodeIcon className={"md:h-[11vw] sm:h-[12vw] h-[20vw]"} />
           </Container>
           <Container>
-            <Stack direction={"column"}>
+            <Stack gap={1.5} direction={"column"}>
               <Container>
                 <Input>Input</Input>
               </Container>
