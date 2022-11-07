@@ -13,31 +13,34 @@ const QrExportForm = (props: Props) => {
   const theme = useTheme();
 
   return (
-    <Paper className="bg-secondary pb-10 pt-10 rounded-3xl px-2 text-tertiary w-[80vw] md:w-[100%] sm:min-w-[380px]">
-      <Box component={"form"}>
+    <Paper className="bg-secondary md:h-[100%] rounded-3xl px-2 text-tertiary w-[80vw]  md:w-[80%] sm:min-w-[380px]">
+      <Box
+        component={"form"}
+        className="h-[100%] box-border flex justify-center p-0 items-end pb-[30%] "
+      >
         <Stack
           justifyContent={"center"}
           alignItems={"center"}
           direction={"column"}
-          gap={5}
+          gap={6}
         >
-          <Container className="flex items-center justify-center">
-            <QrCodeIcon className={"md:h-[11vw] sm:h-[12vw] h-[20vw]"} />
+          <Container className="flex p-0 items-center justify-center ">
+            <QrCodeIcon className={"md:h-[22vh] sm:h-[12vw] h-[20vw]"} />
           </Container>
-          <Container>
-            <Stack gap={1.5} direction={"column"}>
-              <Container>
+          <Container className="w-[100%]  p-0  flex justify-center items-center flex-col">
+            <Stack gap={1.5} direction={"column"} className="w-[100%]">
+              <Container className="w-[100%]  p-0 ">
                 <Input>Input</Input>
               </Container>
-              <Container>
+              <Container className="w-[100%]  p-0 ">
                 <Input>Input</Input>
               </Container>
-              <Container>
+              <Container className="w-[100%]  p-0 ">
                 <Input>Input</Input>
               </Container>
             </Stack>
           </Container>
-          <Container>
+          <Container className="h-[100%]">
             <Stack
               justifyContent={"center"}
               alignItems={"center"}
