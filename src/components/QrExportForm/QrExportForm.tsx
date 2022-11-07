@@ -7,8 +7,9 @@ import useTheme from "@mui/material/styles/useTheme";
 import QrCodeIcon from "@heroicons/react/24/solid/QrCodeIcon";
 import Input from "./Input";
 import IconButton from "../IconButton";
-type Props = {};
 
+
+type Props = {};
 const QrExportForm = (props: Props) => {
   const theme = useTheme();
 
