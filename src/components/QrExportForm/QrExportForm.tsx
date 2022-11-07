@@ -1,14 +1,19 @@
 import React from "react";
-import { Stack, Box, Paper, Container, Button, useTheme } from "@mui/material";
-import { QrCodeIcon } from "@heroicons/react/24/solid";
-import Input from "../Input";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Container from "@mui/material/Container";
+import useTheme from "@mui/material/styles/useTheme";
+import QrCodeIcon from "@heroicons/react/24/solid/QrCodeIcon";
+import Input from "./Input";
+import IconButton from "../IconButton";
 type Props = {};
 
 const QrExportForm = (props: Props) => {
   const theme = useTheme();
 
   return (
-    <Paper className="bg-secondary pb-20 pt-8 rounded-3xl  text-tertiary w-[80vw] md:w-[100%] sm:min-w-[380px]">
+    <Paper className="bg-secondary pb-20 pt-20 rounded-3xl px-2 text-tertiary w-[80vw] md:w-[100%] sm:min-w-[380px]">
       <Box component={"form"}>
         <Stack
           justifyContent={"center"}
@@ -39,18 +44,14 @@ const QrExportForm = (props: Props) => {
               direction={"row"}
               gap={"1.5vw"}
             >
-              <Button
-                className="rounded-full py-5 px-8 text-xs font-bold"
+              <IconButton
+                text="JPG"
                 style={{ backgroundColor: theme.palette.action.active }}
-              >
-                JPG
-              </Button>
-              <Button
-                className="rounded-full py-5 px-8 text-xs font-bold"
+              />
+              <IconButton
+                text="SVG"
                 style={{ backgroundColor: theme.palette.action.selected }}
-              >
-                SVG
-              </Button>
+              />
             </Stack>
           </Container>
         </Stack>
