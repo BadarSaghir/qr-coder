@@ -3,6 +3,10 @@ import { red } from "@mui/material/colors";
 // Create a theme instance.
 const theme = createTheme({
   palette: {
+    action: {
+      active: "#FF9B05",
+      selected: "#3DBCF9",
+    },
     primary: {
       main: "#ECF7FF",
     },
