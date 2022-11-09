@@ -62,7 +62,7 @@ const Input = (props: Props) => {
     <AnimateHeight variants={variants} isVisible={isOpen}>
       <motion.div
         onClick={handleInput}
-        className="App rounded-lg flex flex-col p-5 w-[100%]  bg-secondary_light"
+        className="App overflow-hidden rounded-lg flex flex-col p-5 w-[100%]  bg-secondary_light"
         style={props.style}
       >
         <motion.div className={`background flex justify-between`}>

@@ -13,7 +13,7 @@ const QrExportForm = (props: Props) => {
   const theme = useTheme();
   const iconRef = useRef<HTMLDivElement>(null);
   return (
-    <Paper className="bg-secondary  rounded-3xl px-2 text-tertiary w-[80vw]  md:w-[100%] sm:min-w-[380px]">
+    <Paper className="bg-secondary overflow-hidden rounded-3xl px-4 text-tertiary w-[75vw]  md:w-[100%] sm:min-w-[340px]">
       <Box
         component={"form"}
         className="box-border flex justify-center p-0 items-end pb-[5rem] "
@@ -22,14 +22,14 @@ const QrExportForm = (props: Props) => {
           justifyContent={"stretch"}
           alignItems={"stretch"}
           direction={"column"}
-          className="flex-1 p-4"
+          className="flex-1 p-2"
           gap={5}
         >
           <Container
             ref={iconRef}
             className="flex p-0 items-center justify-center "
           >
-            <QrCodeIcon className={"md:h-[22vh] sm:h-[12vw] h-[20vw]"} />
+            <QrCodeIcon className={"md:h-[22vh] sm:h-[14vh] h-[20vw]"} />
           </Container>
           <Container className="w-[100%]  p-0  flex justify-center items-center flex-col">
             <Stack gap={1.5} direction={"column"} className="w-[100%]">
