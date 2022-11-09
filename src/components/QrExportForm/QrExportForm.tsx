@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -8,36 +8,39 @@ import QrCodeIcon from "@heroicons/react/24/solid/QrCodeIcon";
 import Input from "./Input";
 import IconButton from "../IconButton";
 
-
 type Props = {};
 const QrExportForm = (props: Props) => {
   const theme = useTheme();
-
+  const iconRef = useRef<HTMLDivElement>(null);
   return (
-    <Paper className="bg-secondary md:h-[100%] rounded-3xl px-2 text-tertiary w-[80vw]  md:w-[80%] sm:min-w-[380px]">
+    <Paper className="bg-secondary  rounded-3xl px-2 text-tertiary w-[80vw]  md:w-[100%] sm:min-w-[380px]">
       <Box
         component={"form"}
-        className="h-[100%] box-border flex justify-center p-0 items-end pb-[30%] "
+        className="box-border flex justify-center p-0 items-end pb-[5rem] "
       >
         <Stack
-          justifyContent={"center"}
-          alignItems={"center"}
+          justifyContent={"stretch"}
+          alignItems={"stretch"}
           direction={"column"}
-          gap={6}
+          className="flex-1 p-4"
+          gap={5}
         >
-          <Container className="flex p-0 items-center justify-center ">
+          <Container
+            ref={iconRef}
+            className="flex p-0 items-center justify-center "
+          >
             <QrCodeIcon className={"md:h-[22vh] sm:h-[12vw] h-[20vw]"} />
           </Container>
           <Container className="w-[100%]  p-0  flex justify-center items-center flex-col">
             <Stack gap={1.5} direction={"column"} className="w-[100%]">
               <Container className="w-[100%]  p-0 ">
-                <Input>Input</Input>
+                <Input title="Frame">Input</Input>
               </Container>
               <Container className="w-[100%]  p-0 ">
-                <Input>Input</Input>
+                <Input title="Shape & Color">Input</Input>
               </Container>
               <Container className="w-[100%]  p-0 ">
-                <Input>Input</Input>
+                <Input title="Logo">Input</Input>
               </Container>
             </Stack>
           </Container>
