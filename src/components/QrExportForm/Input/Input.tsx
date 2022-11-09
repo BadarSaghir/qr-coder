@@ -7,60 +7,6 @@ import { AnimateHeight } from "./animation/AnimationHeight";
 
 // import styles from "./Input.module.css";
 
-const liVariants: Variants = {
-  open: {
-    display: "block",
-    height: "100%",
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: { stiffness: 1000 },
-
-      // staggerChildren: 0.05,
-      staggerDirection: 1,
-      when: "afterChildren",
-    },
-  },
-  closed: {
-    y: 50,
-    height: "80%",
-    display: "none",
-    opacity: 0,
-    transition: {
-      y: { stiffness: 1000 },
-
-      // staggerChildren: 0.05,
-      staggerDirection: -1,
-      when: "afterChildren",
-    },
-  },
-};
-
-const hiVariants: Variants = {
-  open: {
-    height: "auto",
-
-    transition: {
-      y: { stiffness: 1000 },
-
-      // staggerChildren: 0.05,
-      staggerDirection: 1,
-      when: "afterChildren",
-    },
-  },
-  closed: {
-    height: "auto",
-    opacity: 0,
-    transition: {
-      y: { stiffness: 1000 },
-
-      // staggerChildren: 0.05,
-      staggerDirection: -1,
-      when: "afterChildren",
-    },
-  },
-};
-
 type Props = {
   style?: React.CSSProperties | undefined;
   title?: string;
@@ -70,22 +16,39 @@ const Input = (props: Props) => {
   const [isOpen, toggleOpen] = useState(true);
   const [isChildOpen, setIsChildOpen] = useState(false);
 
-  const variantsMainDiv = {
+  const variantsMainDiv: Variants = {
     open: {
       opacity: 1,
       height: "auto",
-      display: "block",
       x: 0,
+      transition: {
+        ease: "easeIn",
+      },
     },
-    collapsed: { display: "none", opacity: 1, height: "auto" },
+    collapsed: {
+      transition: {
+        ease: "easeIn",
+      },
+      opacity: 1,
+      height: "0px",
+    },
   };
   const variants = {
     open: {
       opacity: 1,
       height: "100%",
       x: 0,
+      transition: {
+        ease: "easeIn",
+      },
     },
-    collapsed: { opacity: 1, height: "100%" },
+    collapsed: {
+      opacity: 1,
+      transition: {
+        ease: "easeIn",
+      },
+      height: "100%",
+    },
   };
 
   const inRef = useRef<HTMLDivElement>(null);
