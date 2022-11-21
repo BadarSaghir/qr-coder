@@ -36,7 +36,12 @@ const QrExportForm = (props: Props) => {
   console.log(text, qrStatus);
 
   return (
-    <Paper className="bg-secondary overflow-hidden rounded-3xl px-4 text-tertiary w-[75vw]  md:w-[100%] sm:min-w-[340px]">
+    <Paper
+      style={{
+        display: `${qrStatus ? "block" : "none"}`,
+      }}
+      className="bg-secondary overflow-hidden rounded-3xl px-4 text-tertiary w-[75vw]  md:w-[100%] sm:min-w-[340px]"
+    >
       <Box
         component={"form"}
         className="box-border flex justify-center p-0 items-end pb-[5rem] "
@@ -67,7 +72,11 @@ const QrExportForm = (props: Props) => {
             )}
           </Container>
           <Container className="w-[100%]  p-0  flex justify-center items-center flex-col">
-            <Stack gap={1.5} direction={"column"} className="w-[100%]">
+            {
+              //TODO: IMPLEMENTATION OF DIFFERENT FRAMES AND SHAPE
+            }
+            {/* <Stack gap={1.5} direction={"column"} className="w-[100%]">
+           
               <Container className="w-[100%]  p-0 ">
                 <Input title="Frame">Input</Input>
               </Container>
@@ -77,7 +86,7 @@ const QrExportForm = (props: Props) => {
               <Container className="w-[100%]  p-0 ">
                 <Input title="Logo">Input</Input>
               </Container>
-            </Stack>
+            </Stack> */}
           </Container>
           <Container className="h-[100%]">
             <Stack
@@ -93,9 +102,15 @@ const QrExportForm = (props: Props) => {
                     if (e) download(e, "QR.png");
                   });
                 }}
-                style={{ backgroundColor: theme.palette.action.active }}
+                style={{
+                  backgroundColor: theme.palette.action.active,
+                  display: `${qrStatus ? "block" : "none"}`,
+                }}
               />
-              <IconButton
+              {
+                //TODO:IMPLEMENT SVG OF QR
+              }
+              {/* <IconButton
                 text="SVG"
                 onclick={() => {
                   if (text.length > 1)
@@ -104,7 +119,7 @@ const QrExportForm = (props: Props) => {
                     });
                 }}
                 style={{ backgroundColor: theme.palette.action.selected }}
-              />
+              /> */}
             </Stack>
           </Container>
         </Stack>
