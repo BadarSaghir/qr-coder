@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:offline": "next dev --offline",
     "build": "next build",
     "start": "next start",
     "build:turbo": "yarn turbo build lint",
@@ -18,10 +19,14 @@
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
     "framer-motion": "^7.6.5",
+    "jimp": "^0.16.2",
     "next": "13.0.1",
+    "qr-scanner": "^1.4.1",
     "qrcode": "^1.5.1",
+    "qrcode-reader": "^1.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-qr-reader": "^3.0.0-beta-1",
     "resize-observer-polyfill": "^1.5.1",
     "typescript": "4.8.4",
     "zustand": "^4.1.4"
