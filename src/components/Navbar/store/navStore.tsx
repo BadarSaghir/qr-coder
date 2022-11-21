@@ -12,6 +12,7 @@ import {
   QrCodeIcon,
 } from "@heroicons/react/24/solid";
 import QrURLLayout from "../Layouts/QrURLLayout";
+import QRReadLayout from "../Layouts/QRReadLayout";
 
 export const useNavStore = create<{
   items: IItem[];
@@ -62,13 +63,13 @@ export const useNavStore = create<{
     //   query: { parameter: "selected", value: "encryptedMessage" },
     //   Layout: <QrURLLayout />,
     // },
-    // {
-    //   icon: <FolderIcon title="Qr File" />,
-    //   selected: false,
-    //   link: "/?selected=files",
-    //   query: { parameter: "selected", value: "files" },
-    //   Layout: <QrURLLayout />,
-    // },
+    {
+      icon: <FolderIcon title="Qr File" />,
+      selected: false,
+      link: "/?selected=files",
+      query: { parameter: "selected", value: "files" },
+      Layout: <QRReadLayout />,
+    },
     // {
     //   icon: <LockOpenIcon title="Decrypt Message" />,
     //   selected: false,
@@ -97,7 +98,7 @@ export const useNavStore = create<{
       // console.log("info state item before", state.items[idx].selected);
 
       if (state.idxSelected == -1) {
-        state.items[3].selected = false;
+        state.items[state.defaultSelection].selected = false;
         state.idxSelected = idx;
         state.items[idx].selected = true;
       } else {

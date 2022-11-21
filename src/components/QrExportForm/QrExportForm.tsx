@@ -30,7 +30,7 @@ const QrExportForm = (props: Props) => {
   });
   useEffect(() => {
     const canvasElement = ref.current!;
-    if (qrStatus) qrcode.toCanvas(canvasElement, text);
+    if (text.length > 1 && qrStatus) qrcode.toCanvas(canvasElement, text);
   }, [qrStatus, text]);
   const iconRef = useRef<HTMLDivElement>(null);
   console.log(text, qrStatus);
@@ -98,9 +98,10 @@ const QrExportForm = (props: Props) => {
               <IconButton
                 text="SVG"
                 onclick={() => {
-                  ref.current?.toBlob((e) => {
-                    if (e) download(e, "qr.svg");
-                  });
+                  if (text.length > 1)
+                    ref.current?.toBlob((e) => {
+                      if (e) download(e, "qr.svg");
+                    });
                 }}
                 style={{ backgroundColor: theme.palette.action.selected }}
               />
