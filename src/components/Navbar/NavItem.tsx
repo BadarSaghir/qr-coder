@@ -13,7 +13,7 @@ export const NavItem = ({
   toggleSelection,
 }: IItem & { idx: number; toggleSelection: (idx: number) => IItem }) => {
   return (
-    <div className="border-b-[1px] flex-1 flex items-center justify-center border-collapse border-b-shadow_transparent">
+    <div className="md:border-b-[1px] flex-1 flex items-center justify-center md:border-collapse md:border-b-shadow_transparent">
       <Link href={link ?? ""}>
         <button
           onClick={() => {
