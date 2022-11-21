@@ -10,10 +10,12 @@ const QRReadLayout = (props: Props) => {
   const [text, setText] = useState("Your Qr Output Will be here....");
   const ref = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState("Upload file");
+  const [err, setErr] = useState(false);
 
   const generateText = () => {
+    setErr(false);
     const files = ref.current?.files;
-    if (files != null) {
+    if (files != null && files[0]) {
       setFileName(files[0].name);
       qr.scanImage(files[0])
         .then((e) => {
@@ -21,7 +23,8 @@ const QRReadLayout = (props: Props) => {
           console.log(e);
         })
         .catch(() => {
-          setText("No A Qrcode....");
+          setText("Your Qr Output Will be here....");
+          setErr(true);
         });
     }
   };
@@ -62,6 +65,14 @@ const QRReadLayout = (props: Props) => {
             <span>{fileName}</span>
           </label>
         </div>
+        {err && (
+          <p
+            className=" file-input__label mt-5 text-red"
+            style={{ color: "red" }}
+          >
+            <span>Could Not read QR CODE PLEASE try another file</span>
+          </p>
+        )}
         {/* <IconButton
           style={{ backgroundColor: "blue" }}
           text="Click here To read "

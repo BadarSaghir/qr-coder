@@ -38,7 +38,9 @@ const QrExportForm = (props: Props) => {
   return (
     <Paper
       style={{
-        display: `${qrStatus ? "block" : "none"}`,
+        display: `${
+          qrStatus && text.match(/[a-z0-9]+[ ]*/gi) ? "block" : "none"
+        }`,
       }}
       className="bg-secondary overflow-hidden rounded-3xl px-4 text-tertiary w-[75vw]  md:w-[100%] sm:min-w-[340px]"
     >
