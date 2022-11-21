@@ -1,13 +1,13 @@
 {
   "name": "qr-coder",
   "version": "0.1.0",
-  "homepage": "https://badarsaghir.github.io/qr-coder",
+  "homepage": "https://badarsaghir.github.io/qr-coder/",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "dev:offline": "next dev --offline",
     "build": "next build  && next export",
-    "deploy": "gh-pages -d out",
+    "deploy": "yarn build && touch out/.nojekyll && gh-pages -t -d out",
     "start": "next start",
     "build:turbo": "yarn turbo build lint",
     "lint": "next lint"
