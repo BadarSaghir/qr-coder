@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -7,11 +7,34 @@ import useTheme from "@mui/material/styles/useTheme";
 import QrCodeIcon from "@heroicons/react/24/solid/QrCodeIcon";
 import Input from "./Input";
 import IconButton from "../IconButton";
-
+import useQrStore from "../../store/QrStore";
+import qrcode from "qrcode";
 type Props = {};
 const QrExportForm = (props: Props) => {
   const theme = useTheme();
+  const ref = useRef<HTMLCanvasElement>(null);
+  const [text, setText] = useState("");
+  const [qrStatus, setStatusQr] = useState(false);
+  let qrObj = qrcode.create("Welcome to qr");
+  function download(blob: any, fileName: string) {
+    var a = document.createElement("a");
+    var file = blob;
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+  }
+  // useQrStore.subscribe((state) => setStatusQr(state.generate));
+  useQrStore.subscribe((state) => {
+    setStatusQr(state.generate);
+    setText(state.qrText);
+  });
+  useEffect(() => {
+    const canvasElement = ref.current!;
+    if (qrStatus) qrcode.toCanvas(canvasElement, text);
+  }, [qrStatus, text]);
   const iconRef = useRef<HTMLDivElement>(null);
+  console.log(text, qrStatus);
+
   return (
     <Paper className="bg-secondary overflow-hidden rounded-3xl px-4 text-tertiary w-[75vw]  md:w-[100%] sm:min-w-[340px]">
       <Box
@@ -27,9 +50,21 @@ const QrExportForm = (props: Props) => {
         >
           <Container
             ref={iconRef}
-            className="flex p-0 items-center justify-center "
+            className="flex p-0 pt-2 items-center justify-center "
           >
-            <QrCodeIcon className={"md:h-[22vh] sm:h-[14vh] h-[20vw]"} />
+            {qrStatus ? (
+              <canvas
+                ref={ref}
+                className="md:h-[22vh] bg-primary_dark sm:h-[14vh] h-[20vw] opacity-1"
+                id="qr"
+              ></canvas>
+            ) : (
+              <>
+                <QrCodeIcon
+                  className={"md:h-[22vh] sm:h-[14vh] h-[20vw] opacity-0"}
+                />
+              </>
+            )}
           </Container>
           <Container className="w-[100%]  p-0  flex justify-center items-center flex-col">
             <Stack gap={1.5} direction={"column"} className="w-[100%]">
@@ -52,11 +87,21 @@ const QrExportForm = (props: Props) => {
               gap={"1.5vw"}
             >
               <IconButton
-                text="JPG"
+                text="PNG"
+                onclick={() => {
+                  ref.current?.toBlob((e) => {
+                    if (e) download(e, "QR.png");
+                  });
+                }}
                 style={{ backgroundColor: theme.palette.action.active }}
               />
               <IconButton
                 text="SVG"
+                onclick={() => {
+                  ref.current?.toBlob((e) => {
+                    if (e) download(e, "qr.svg");
+                  });
+                }}
                 style={{ backgroundColor: theme.palette.action.selected }}
               />
             </Stack>

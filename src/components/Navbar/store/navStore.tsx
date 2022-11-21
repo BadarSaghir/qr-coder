@@ -24,30 +24,30 @@ export const useNavStore = create<{
   toggleSelection: (idx: number) => IItem;
 }>((set, get) => ({
   idxSelected: -1,
-  defaultSelection: 3,
+  defaultSelection: 0,
   selected: false,
   items: [
-    {
-      link: "/?selected=url",
-      selected: false,
-      icon: <LinkIcon title="Qr Link" />,
-      query: { parameter: "selected", value: "url" },
-      Layout: <QrURLLayout />,
-    },
-    {
-      link: "/?selected=event",
-      selected: false,
-      icon: <CalendarIcon title="Qr Event" />,
-      query: { parameter: "selected", value: "event" },
-      Layout: <QrURLLayout />,
-    },
-    {
-      link: "/?selected=email",
-      selected: false,
-      icon: <EnvelopeOpenIcon title="Qr Email" />,
-      query: { parameter: "selected", value: "email" },
-      Layout: <QrURLLayout />,
-    },
+    // {
+    //   link: "/?selected=url",
+    //   selected: false,
+    //   icon: <LinkIcon title="Qr Link" />,
+    //   query: { parameter: "selected", value: "url" },
+    //   Layout: <QrURLLayout />,
+    // },
+    // {
+    //   link: "/?selected=event",
+    //   selected: false,
+    //   icon: <CalendarIcon title="Qr Event" />,
+    //   query: { parameter: "selected", value: "event" },
+    //   Layout: <QrURLLayout />,
+    // },
+    // {
+    //   link: "/?selected=email",
+    //   selected: false,
+    //   icon: <EnvelopeOpenIcon title="Qr Email" />,
+    //   query: { parameter: "selected", value: "email" },
+    //   Layout: <QrURLLayout />,
+    // },
     {
       link: "/?selected=text",
       selected: true,
@@ -55,27 +55,27 @@ export const useNavStore = create<{
       query: { parameter: "selected", value: "text" },
       Layout: <QrURLLayout />,
     },
-    {
-      icon: <LockClosedIcon title="Encrypted Message" />,
-      selected: false,
-      link: "/?selected=encryptedMessage",
-      query: { parameter: "selected", value: "encryptedMessage" },
-      Layout: <QrURLLayout />,
-    },
-    {
-      icon: <FolderIcon title="Qr File" />,
-      selected: false,
-      link: "/?selected=files",
-      query: { parameter: "selected", value: "files" },
-      Layout: <QrURLLayout />,
-    },
-    {
-      icon: <LockOpenIcon title="Decrypt Message" />,
-      selected: false,
-      link: "/?selected=decryptedMsg",
-      query: { parameter: "selected", value: "decryptedMsg" },
-      Layout: <QrURLLayout />,
-    },
+    // {
+    //   icon: <LockClosedIcon title="Encrypted Message" />,
+    //   selected: false,
+    //   link: "/?selected=encryptedMessage",
+    //   query: { parameter: "selected", value: "encryptedMessage" },
+    //   Layout: <QrURLLayout />,
+    // },
+    // {
+    //   icon: <FolderIcon title="Qr File" />,
+    //   selected: false,
+    //   link: "/?selected=files",
+    //   query: { parameter: "selected", value: "files" },
+    //   Layout: <QrURLLayout />,
+    // },
+    // {
+    //   icon: <LockOpenIcon title="Decrypt Message" />,
+    //   selected: false,
+    //   link: "/?selected=decryptedMsg",
+    //   query: { parameter: "selected", value: "decryptedMsg" },
+    //   Layout: <QrURLLayout />,
+    // },
   ],
 
   addNavItem: (item: IItem) =>
