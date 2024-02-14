@@ -4,8 +4,8 @@
   "homepage": "https://badarsaghir.github.io/qr-coder/",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "dev:offline": "next dev --offline",
+    "dev": "next dev -p 8100",
+    "dev:offline": "next dev --offline  -p 8100",
     "build": "next build  && next export",
     "deploy": "yarn build && touch out/.nojekyll && gh-pages -t -d out",
     "start": "next start",

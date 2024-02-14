@@ -4,6 +4,7 @@ import DividerLayout from "../../Layouts/DividerLayout";
 import qr from "qr-scanner";
 import "./layout.module.css";
 import { setRef } from "@mui/material";
+// import { IonToggle } from '@ionic/react';
 
 type Props = {};
 const QRReadLayout = (props: Props) => {
@@ -35,6 +36,8 @@ const QRReadLayout = (props: Props) => {
           <p className="pb-5">{text}</p>
 
           <div className="file-input">
+          {/* <IonToggle checked={true}>Checked Toggle</IonToggle> */}
+
             <input
               type="file"
               name="file-input"
