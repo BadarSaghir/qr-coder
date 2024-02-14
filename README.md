@@ -19,6 +19,11 @@ yarn dev
 
 ```yarn dev ```
 
+### Ionic build
+
+#### deploy on android
+```ionic cap build  android ```
+
 ### For production built
 
 ```yarn build ```
