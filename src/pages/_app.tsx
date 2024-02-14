@@ -21,7 +21,7 @@ export default function MyApp(props: MyAppProps) {
   return (<>
     <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <meta name="description" content="The application is developed as a standalone qr scanner which can run on any where." />
+        <meta name="description" content="The application is developed as a standalone qr scanner which can run on any where. Will support AES in future." />
         <meta name="keywords" content="qr, qrcode,qr-code, qr-coder, encrypted, aes, qr-coder-aes" />
         <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
 
