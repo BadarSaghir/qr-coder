@@ -1,0 +1,7 @@
+{
+  "name": "qr-coder",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
